@@ -34,13 +34,13 @@ type LinkList struct {
 	headNode *Node
 }
 
-// 初始化
+//LinkListInit  初始化
 func LinkListInit() (m *LinkList) {
 	m = new(LinkList)
 	return
 }
 
-// 判断是不是一个空链表
+//IsEmpty 判断是不是一个空链表
 func (p *LinkList) IsEmpty() (b bool) {
 	if p.headNode == nil {
 		b = true
@@ -49,7 +49,7 @@ func (p *LinkList) IsEmpty() (b bool) {
 	return
 }
 
-// 获取长度
+//GetLength  获取长度
 func (p *LinkList) GetLength() (n int) {
 	cur := p.headNode
 	count := 0
@@ -61,7 +61,7 @@ func (p *LinkList) GetLength() (n int) {
 	return
 }
 
-// 添加头
+//Add 添加头
 func (p *LinkList) Add(data ElementType) {
 	node := &Node{
 		Data: data,
@@ -75,7 +75,7 @@ func (p *LinkList) Add(data ElementType) {
 	return
 }
 
-// 尾添加
+//Append 尾添加
 func (p *LinkList) Append(data ElementType) {
 	node := &Node{
 		Data: data,
@@ -95,7 +95,7 @@ func (p *LinkList) Append(data ElementType) {
 	return
 }
 
-// 指定位置添加
+//Insert 指定位置添加
 func (p *LinkList) Insert(i int, data ElementType) {
 	if i <= 0 { // 如果小于0 头添加
 		p.Add(data)
@@ -118,7 +118,7 @@ func (p *LinkList) Insert(i int, data ElementType) {
 	return
 }
 
-// 获取所有元素
+//GetAllElement 获取所有元素
 func (p *LinkList) GetAllElement() (data []ElementType) {
 	if p.IsEmpty() {
 		return
@@ -132,7 +132,7 @@ func (p *LinkList) GetAllElement() (data []ElementType) {
 	return
 }
 
-// 删除指定元素
+//DelElement 删除指定元素
 func (p *LinkList) DelElement(i int) {
 	if p.IsEmpty() {
 		return
@@ -163,7 +163,7 @@ func (p *LinkList) DelElement(i int) {
 	return
 }
 
-// 删除指定元素
+//RemoveElement 删除指定元素
 func (p *LinkList) RemoveElement(i int) {
 	if p.IsEmpty() {
 		return

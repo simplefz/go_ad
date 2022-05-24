@@ -2,10 +2,10 @@ package ad_sort
 
 import "fmt"
 
-// PopSort 冒泡
+/*// PopSort 冒泡
 func PopSort(arr []int) []int {
-	for i := 0; i < len(arr); i++ {
-		for j := len(arr) - 1; j > 0; j-- {
+	for i := 0; i < len(arr)-1; i++ {
+		for j := i; j > 0; j-- {
 			if arr[j] > arr[j-1] {
 				temp := arr[j]
 				arr[j] = arr[j-1]
@@ -14,10 +14,23 @@ func PopSort(arr []int) []int {
 		}
 	}
 	return arr
+}*/
+
+// PopSort 冒泡
+func PopSort(arr []int) []int {
+	for i := len(arr) - 1; i > 0; i-- {
+		for j := 0; j < i; j++ {
+			if arr[j] > arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+	return arr
 }
 
 // SelectSort 选择排序
 func SelectSort(arr []int) []int {
+	fmt.Println(arr)
 	lenArr := len(arr)
 	for i := lenArr - 1; i >= 0; i-- {
 		for j := 0; j < i; j++ {
