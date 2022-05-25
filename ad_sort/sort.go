@@ -2,42 +2,36 @@ package ad_sort
 
 import "fmt"
 
-/*// PopSort 冒泡
-func PopSort(arr []int) []int {
-	for i := 0; i < len(arr)-1; i++ {
-		for j := i; j > 0; j-- {
-			if arr[j] > arr[j-1] {
-				temp := arr[j]
-				arr[j] = arr[j-1]
-				arr[j-1] = temp
-			}
-		}
-	}
-	return arr
-}*/
-
 // PopSort 冒泡
 func PopSort(arr []int) []int {
-	for i := len(arr) - 1; i > 0; i-- {
-		for j := 0; j < i; j++ {
+	n := len(arr)
+	fmt.Println("未排序", arr, n)
+	for i := 0; i < n; i++ {
+		for j := 0; j < n-1; j++ {
+			fmt.Println("j,j+", j, j+1)
 			if arr[j] > arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+				fmt.Println("对比值：", arr[j], arr[j+1], arr)
+				arr[j+1], arr[j] = arr[j], arr[j+1]
 			}
 		}
+		fmt.Println("第", i, "次", arr)
 	}
 	return arr
 }
 
 // SelectSort 选择排序
 func SelectSort(arr []int) []int {
-	fmt.Println(arr)
 	lenArr := len(arr)
+	fmt.Println("未排序", arr, lenArr)
 	for i := lenArr - 1; i >= 0; i-- {
 		for j := 0; j < i; j++ {
+			fmt.Println("i,j", i, j)
+			fmt.Println("对比值：", arr[i], arr[j], arr)
 			if arr[i] > arr[j] {
 				arr[j], arr[i] = arr[i], arr[j]
 			}
 		}
+		fmt.Println("第", i, "次", arr)
 	}
 	return arr
 }
