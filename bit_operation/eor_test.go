@@ -1,10 +1,31 @@
 package bit_operation
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSwapValue(t *testing.T) {
 	if a, b := SwapValue(10, 18); a != 18 || b != 10 {
 		t.Errorf("a,b want to swap but it not succee !, old a %d,old b %d,new a %d,new b %d", 10, 18, a, b)
+	}
+}
+
+func BenchmarkSwapValue(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		SwapValue(10, 18)
+	}
+}
+
+func BenchmarkSwapValueOther(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		a := 10
+		b := 18
+		/*c := a
+		a = b
+		b = c*/
+		a, b = b, a
 	}
 }
 
