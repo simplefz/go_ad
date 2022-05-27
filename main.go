@@ -2,10 +2,13 @@ package main
 
 import (
 	"fmt"
-	"go_adt/ad_sort"
+	"go_adt/bit_operation"
 )
 
 func main() {
-	arr := []int{2, 3, 43, 4, 801, 8, 101, 9, 1, 12, 1, 1, 2, 121, 23}
-	fmt.Println(ad_sort.SelectSort(arr))
+
+	arr := []uint32{
+		2, 2, 111, 111, 333, 333, 555, 555, 555, 777,
+	}
+	fmt.Println(bit_operation.XorArrOddNumberTwo(arr))
 }
