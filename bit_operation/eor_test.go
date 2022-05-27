@@ -14,6 +14,24 @@ func TestXorArrOddNumberOne(t *testing.T) {
 	}
 }
 
+func TestXorArrOddNumberOneMatch(t *testing.T) {
+	cases := []struct {
+		Name     string
+		Param    []int
+		Expected int
+	}{
+		{"single", []int{1, 1, 2, 3, 3, 4, 4}, 2},
+		{"more", []int{1, 1, 2, 2, 2, 3, 3, 4, 4}, 2},
+	}
+	for _, v := range cases {
+		t.Run(v.Name, func(t *testing.T) {
+			if oddNum := XorArrOddNumberOne(v.Param); oddNum != v.Expected {
+				t.Errorf("oddNum want give in %d ! %d", v.Expected, oddNum)
+			}
+		})
+	}
+}
+
 func TestXorArrOddNumberTwo(t *testing.T) {
 	value, value2 := XorArrOddNumberTwo([]uint32{111, 111, 333, 333, 555, 555, 555, 777})
 	if value != 555 && value != 777 {
