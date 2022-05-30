@@ -36,6 +36,20 @@ func SelectSort(arr []int) []int {
 	return arr
 }
 
+// InsertionSort 插入排序
+func InsertionSort(arr []int) []int {
+	arrLen := len(arr)
+	// 控制0-i 有序
+	for i := 0; i < arrLen; i++ {
+		fmt.Println(arr[i])
+		for j := i; j > 0 && arr[j-1] > arr[j]; j-- {
+			arr[j-1], arr[j] = arr[j], arr[j-1]
+		}
+		fmt.Println(arr)
+	}
+	return arr
+}
+
 type Uint64Slice []uint64
 
 func QuickSort(numbers Uint64Slice, start, end int) {
