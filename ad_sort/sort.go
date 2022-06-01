@@ -93,3 +93,53 @@ func QuickSort(numbers Uint64Slice, start, end int) {
 func (numbers Uint64Slice) swap(i, j int) {
 	numbers[i], numbers[j] = numbers[j], numbers[i]
 }
+
+//MergeSort  归并排序
+func MergeSort(arr []int, L int, R int) []int {
+	// 0 - 0 位置有序直接返回
+	if L == R {
+		return arr
+	}
+	mid := L + ((R - L) >> 1)
+	fmt.Println(L, mid)
+	MergeSort(arr, L, mid)
+	fmt.Println(mid+1, R)
+	MergeSort(arr, mid+1, R)
+	fmt.Println(arr, L, mid, R)
+	mergeList(arr, L, mid, R)
+	return arr
+}
+
+func mergeList(arr []int, L int, mid int, R int) {
+	var (
+		tempArr []int
+		tempL   int
+		tempR   int
+	)
+	tempL = L
+	tempR = mid + 1
+	for tempL <= mid && tempR <= R {
+		if arr[tempL] <= arr[tempR] {
+			tempArr = append(tempArr, arr[tempL])
+			tempL++
+		} else {
+			tempArr = append(tempArr, arr[tempR])
+			tempR++
+		}
+	}
+
+	for tempL <= mid {
+		tempArr = append(tempArr, arr[tempL])
+		tempL++
+	}
+
+	for tempR <= R {
+		tempArr = append(tempArr, arr[tempR])
+		tempR++
+	}
+	fmt.Println(tempArr)
+	for _, v := range tempArr {
+		arr[L] = v
+		L++
+	}
+}
