@@ -38,9 +38,19 @@ func TestInsertionSort(t *testing.T) {
 //
 func TestMergeSort(t *testing.T) {
 	arr := []int{
-		4, 5, 89, 1, 2, 34, 56, 98, 7,
+		3, 5, 1, 29, 2,
 	}
 	lenArr := len(arr)
 	res := MergeSort(arr, 0, lenArr-1)
+	fmt.Println(res)
+}
+
+// 求小和
+func TestSumMinMergeSort(t *testing.T) {
+	arr := []int{
+		3, 5, 1, 29, 2,
+	}
+	lenArr := len(arr)
+	res := MinSumMerge(arr, 0, lenArr-1)
 	fmt.Println(res)
 }
